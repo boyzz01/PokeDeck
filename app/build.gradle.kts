@@ -30,11 +30,16 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
+    }
+
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
     }
 }
 
@@ -53,12 +58,9 @@ dependencies {
     implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.28")
     implementation("com.github.ybq:Android-SpinKit:1.4.0")
     implementation("com.github.GrenderG:Toasty:1.5.2")
-    implementation("com.jakewharton.timber:timber:4.7.1")
-    implementation("de.hdodenhof:circleimageview:3.1.0")
-    implementation("com.github.pzienowicz:androidx-auto-scroll-view-pager:1.4.0")
-    implementation("com.facebook.shimmer:shimmer:0.5.0")
-    implementation("com.github.smarteist:autoimageslider:1.4.0")
     implementation("com.jakewharton.rxbinding:rxbinding:0.4.0")
+    implementation("com.squareup.picasso:picasso:2.71828")
+
 
     // Kotlin Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
