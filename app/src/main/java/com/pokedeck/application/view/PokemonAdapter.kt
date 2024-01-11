@@ -9,7 +9,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.pokedeck.application.data.model.Pokemon
 import com.pokedeck.application.databinding.ItemPokemonBinding
-import com.squareup.picasso.Picasso
 
 class PokemonAdapter : RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder>() {
 
@@ -39,11 +38,11 @@ class PokemonAdapter : RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder>() 
         RecyclerView.ViewHolder(binding.root) {
         fun bind(pokemon: Pokemon) {
             binding.textViewPokemonName.text = pokemon.name
-            var imageUrl = "https://img.pokemondb.net/artwork/large/{$pokemon.name}.jpg"
-            Picasso.get()
-                .load(imageUrl)
-                .fit()
-                .centerInside()
+            var url = "https://img.pokemondb.net/artwork/large/"+pokemon.name+".jpg"
+            Glide.with(binding.root)
+                .load(url)
+                .fitCenter()
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(binding.imageViewPokemon)
         }
     }

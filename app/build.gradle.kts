@@ -52,6 +52,7 @@ dependencies {
     implementation("androidx.activity:activity-ktx:1.8.2")
     implementation("androidx.fragment:fragment-ktx:1.6.0")
     implementation("com.github.bumptech.glide:glide:4.15.1")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
 
 
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
