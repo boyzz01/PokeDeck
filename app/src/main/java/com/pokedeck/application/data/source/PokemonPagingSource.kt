@@ -18,13 +18,11 @@ class PokemonPagingSource(private val apiService: ApiService) : PagingSource<Int
 
             LoadResult.Page(pokemon, prevKey, nextKey)
         } catch (e: Exception) {
-            // Handle error
             LoadResult.Error(e)
         }
     }
 
     override fun getRefreshKey(state: PagingState<Int, Pokemon>): Int? {
-        // We don't need to implement this function for now, so we return null
         return null
     }
 
