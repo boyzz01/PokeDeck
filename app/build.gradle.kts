@@ -59,9 +59,12 @@ dependencies {
     implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.28")
     implementation("com.github.ybq:Android-SpinKit:1.4.0")
     implementation("com.github.GrenderG:Toasty:1.5.2")
-    implementation("com.jakewharton.rxbinding:rxbinding:0.4.0")
-    implementation("com.squareup.picasso:picasso:2.71828")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0")
 
+
+    implementation("androidx.paging:paging-runtime:3.1.1")
+    implementation("androidx.paging:paging-common-ktx:3.1.1")
 
     // Kotlin Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")

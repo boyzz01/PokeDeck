@@ -37,11 +37,9 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     }
 
     override fun observeViewModel() {
-        CoroutineScope(Dispatchers.Main).launch {
-            viewModel.pokemonList.collect { pokemonList ->
-                mCustomProgressBar.hideProgressBar()
-                pokemonAdapter.setPokemonList(pokemonList)
-            }
+        viewModel.pokemonList.observe(this) { pagingData ->
+            mCustomProgressBar.hideProgressBar()
+            pokemonAdapter.submitData(lifecycle, pagingData)
         }
     }
 }
