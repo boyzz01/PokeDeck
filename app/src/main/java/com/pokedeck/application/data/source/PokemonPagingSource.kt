@@ -9,14 +9,14 @@ class PokemonPagingSource(private val apiService: ApiService) : PagingSource<Int
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Pokemon> {
         return try {
-            val page = params.key ?: 1 // Starting page index is 1
+            val page = params.key ?: 1
             val pageSize = 10
             val response = apiService.getPokemonList(page, pageSize)
-            val products = response.body()!!.results
-            val prevKey = if (page > 1) page - 1 else null
-            val nextKey = if (products.isNotEmpty()) page + 1 else null
+            val pokemon = response.body()!!.results
+            val prevKey = if (page > 1) page - 10 else null
+            val nextKey = if (pokemon.isNotEmpty()) page + 10 else null
 
-            LoadResult.Page(products, prevKey, nextKey)
+            LoadResult.Page(pokemon, prevKey, nextKey)
         } catch (e: Exception) {
             // Handle error
             LoadResult.Error(e)
